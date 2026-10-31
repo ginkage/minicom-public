@@ -12,7 +12,7 @@ set "HINT=JAVA_HOME is set to %JAVA_HOME%. Point it at a JDK 21 or newer, or uns
 if errorlevel 1 goto :notfound
 
 set "JV="
-for /f tokens^=2^ delims^=^" %%v in ('""%JAVA_BIN%" -version 2^>^&1"') do if not defined JV set "JV=%%v"
+for /f tokens^=2^ delims^=^" %%v in ('""%JAVA_BIN%" -version 2>&1"') do if not defined JV set "JV=%%v"
 
 rem Old style "1.8.0_x" has the major version second; "21.0.4" has it first.
 set "MAJOR="
